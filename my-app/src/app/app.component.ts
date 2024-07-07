@@ -7,11 +7,4 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   message = "Hello";
-  array_auto = [
-    { name: 'Lada' },
-    { name: 'Mazda' },
-    { name: 'Bmw' },
-    { name: 'Exceed'}
-  ]
-  date_now = new Date();
 }

@@ -1,0 +1,11 @@
+<h3>
+    Товар: Автомобиль
+  </h3>
+  
+  <button routerLink="details">Детальная информация</button>
+  <button routerLink="list">List</button>
+  <button routerLink="list" [queryParams]="{ list: 1, enable: true }">
+    query params
+  </button>
+  
+  <router-outlet></router-outlet>

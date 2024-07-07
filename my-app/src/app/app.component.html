@@ -1,5 +1,9 @@
 <h1>{{message}}</h1>
-<h2>Автомобили от {{date_now | date: 'dd.MM.yyyy'}} и до {{date_now | mypipe | date: 'dd.MM.yyyy'}}</h2>
-<ul>
-    <li [id]="car.name" *ngFor="let car of array_auto">{{car.name}}</li>
-</ul>
+<a routerLink="/">Главная страница</a>
+<br />
+<a routerLink="/about">О компании</a>
+<br />
+<a routerLink="/contact">Контакт</a>
+
+
+<router-outlet></router-outlet>

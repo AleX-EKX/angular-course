@@ -1,2 +1,5 @@
 <h1>{{message}}</h1>
-<app-counter></app-counter>
+<h2>Автомобили от {{date_now | date: 'dd.MM.yyyy'}} и до {{date_now | mypipe | date: 'dd.MM.yyyy'}}</h2>
+<ul>
+    <li [id]="car.name" *ngFor="let car of array_auto">{{car.name}}</li>
+</ul>

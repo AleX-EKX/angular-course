@@ -1,1 +1,108 @@
-<h1>{{title}}</h1>
+<form class="container my-auto">
+    <div class="mb-3">
+      <label class="form-label">Название</label>
+      <input
+        minlength="2"
+        maxlength="10"
+        pattern="[А-Яа-яёЁ\s]+" 
+        required
+        #nameBook="ngModel"
+        name="name"
+        [(ngModel)]="create_book.name"
+        type="text"
+        class="form-control"
+      />
+  
+      <div *ngIf="nameBook.invalid && (nameBook.dirty || nameBook.touched)">
+        <div
+          *ngIf="nameBook.hasError('minlength')"
+          class="alert alert-danger mt-2"
+          role="alert"
+        >
+          Минимальная длинна должна быть больше 2 символов
+        </div>
+        <div
+          *ngIf="nameBook.hasError('required')"
+          class="alert alert-danger mt-2"
+          role="alert"
+        >
+          Поле должно быть заполнено
+        </div>
+        <div
+          *ngIf="nameBook.hasError('pattern')"
+          class="alert alert-danger mt-2"
+          role="alert"
+        >
+          Поле не должно содержать цифр,латиницу и спец. символов
+        </div>
+      </div>
+    </div>
+  
+    <div class="mb-3">
+      <label class="form-label">Автор</label>
+      <input
+        minlength="2"
+        maxlength="10"
+        pattern="[А-Яа-яёЁ\s]+" 
+        required
+        #authorName="ngModel"
+        name="author"
+        [(ngModel)]="create_book.author"
+        type="text"
+        class="form-control"
+      />
+  
+      <div *ngIf="authorName.invalid && (authorName.dirty || authorName.touched)">
+        <div
+          *ngIf="authorName.hasError('minlength')"
+          class="alert alert-danger mt-2"
+          role="alert"
+        >
+          Минимальная длинна должна быть больше 2 символов
+        </div>
+        <div
+          *ngIf="authorName.hasError('required')"
+          class="alert alert-danger mt-2"
+          role="alert"
+        >
+          Поле должно быть заполнено
+        </div>
+        <div
+          *ngIf="authorName.hasError('pattern')"
+          class="alert alert-danger mt-2"
+          role="alert"
+        >
+          Поле не должно содержать цифр, латиницу и  спец. символов
+        </div>
+      </div>
+    </div>
+    <button
+      [disabled]="nameBook.invalid || authorName.invalid"
+      (click)="createBook()"
+      type="submit"
+      class="btn btn-primary"
+    >
+      Добавить книгу
+    </button>
+  </form>
+  
+  <div>
+    <h1 class="display-6 container m-5 d-flex justify-content-center">Список Книг</h1>
+    <table class="table table-striped container pt-10">
+      <thead>
+        <tr>
+          <th scope="col">Номер</th>
+          <th scope="col">Название</th>
+          <th scope="col">Автор</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let book of books; index as i">
+          <th scope="row">{{ i + 1 }}</th>
+          <td>{{ book.name }}</td>
+          <td>{{ book.author }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

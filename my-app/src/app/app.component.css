@@ -1,0 +1,24 @@
+.getData{
+    border: 2px solid black;
+    padding: .5rem;
+    margin-bottom: 2px;
+}
+span{
+    font-size: 1.5rem;
+    padding: 0 .5rem;
+}
+span:nth-child(1){
+    color: rgb(64, 38, 7);
+}
+span:nth-child(2){
+    color: rgb(4, 99, 59)
+}
+span:nth-child(3){
+    color: rgb(42, 85, 165);
+}
+.green{
+    color: rgb(5, 192, 5);
+}
+.red{
+ color: rgba(245, 5, 5, 0.989);
+}

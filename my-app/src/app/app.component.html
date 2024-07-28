@@ -1,1 +1,9 @@
-<h1>{{title}}</h1>
+<div *ngFor="let data of users" class="getData" style="display: flex;">
+  <span>UserId: {{data.userId}}</span>
+  <span>Id: {{data.id}}</span>
+  <span>Title: {{data.title}}</span>
+  <span [ngClass]="{ 'green': data.completed, 'red': !data.completed }">
+    Completed: {{data.completed}}
+  </span>
+
+</div>

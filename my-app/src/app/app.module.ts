@@ -8,6 +8,8 @@ import { PostProfileComponent } from './post-profile/post-profile.component';
 import { ErrorComponent } from './error/error.component';
 import { DataService } from './data.service';
 import { AuthGuard } from './auth.guard';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -18,7 +20,8 @@ import { AuthGuard } from './auth.guard';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [DataService,AuthGuard],
   bootstrap: [AppComponent]

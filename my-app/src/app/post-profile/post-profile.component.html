@@ -4,16 +4,16 @@
   <thead>
     <tr>
       <th scope="col">ID</th>
-      <th scope="col">Имя</th>
-      <th scope="col">Возраст</th>
+      <th scope="col">Title</th>
+      <th scope="col">Body</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">{{ profile.id }}</th>
-      <td>{{ profile.name }}</td>
-      <td>{{ profile.age }} лет</td>
-    </tr>
+    <tr *ngIf="post">
+        <th scope="row">{{ post.userId }}</th>
+        <td>{{ post.title }}</td>
+        <td>{{ post.body }}</td>
+      </tr>
   </tbody>
 </table>
 

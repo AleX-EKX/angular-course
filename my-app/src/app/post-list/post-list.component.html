@@ -1,12 +1,11 @@
 <div class="card" style="width: 18rem;">
-    <img src="..." class="card-img-top" alt="..." />
+    <img src="../../assets/1.jpg" class="card-img-top" alt="..." />
     <div class="card-body">
-      <h5 class="card-title">Пользователь Иванов</h5>
+      <h4 class="card-title">{{ dataService.role === 'admin' ? 'Данные доступны' : 'Данные не доступны' }}</h4>
       <p class="card-text">
-        Some quick example text to build on the card title and make up the bulk of
-        the card's content.
+        {{ dataService.role === 'admin' ? 'Кликните на кнопку для просмотра данных.' : '' }}
       </p>
-      <a routerLink="/users/1" class="btn btn-primary">Посмотреть данные</a>
+      <a routerLink="/users/1" class="btn btn-primary ">{{dataService.role === 'admin' ? 'Посмотреть данные' : 'Доступ запрещен'}} </a>
     </div>
   </div>
   

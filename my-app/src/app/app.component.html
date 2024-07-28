@@ -1,1 +1,11 @@
-<h1>{{title}}</h1>
+
+<div class="button-container">
+    <button (click)="getPosts()">GET Posts</button>
+    <button (click)="getComments()">GET Comments</button>
+    <button (click)="createPost()">POST Create Post</button>
+    <button (click)="getInvalidPost()">GET Invalid Post</button>
+    <button (click)="getPostsHeaders()">GET Posts with Header</button>
+    <button (click)="deletePost()">DELETE Post</button>
+    <button routerLink="/resolved">Go to Resolved Route</button>
+  </div>
+  <router-outlet></router-outlet>

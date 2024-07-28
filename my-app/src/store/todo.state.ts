@@ -16,6 +16,6 @@ export class TodoState {
   @Action(AddTodo)
   add(ctx: StateContext<Todo[]>, action: AddTodo) {
     const state = ctx.getState();
-    ctx.setState([...state, action.payload]);
+    ctx.setState(state.concat(action.payload));
   }
 }

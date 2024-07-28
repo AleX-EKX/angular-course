@@ -1,1 +1,6 @@
-<h1>{{title}}</h1>
+<div>
+  <button (click)="dynamicCreate()">Добавить динамический компонент </button>
+  <button (click)="dynamicDelete()">Удалить динамический компонент</button>
+</div>
+
+<ng-template #dynamicComp></ng-template>

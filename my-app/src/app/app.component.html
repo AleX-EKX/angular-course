@@ -4,6 +4,5 @@
   <button (click)="addTodo()">Добавить задачу</button>
 </div>
 <ul>
-  <li *ngFor="let todo of todos$ | async">{{ todo.text }}</li>
+  <li *ngFor="let todo of todos">{{ todo.text }}</li>
 </ul>
-

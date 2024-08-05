@@ -1,0 +1,67 @@
+.search-form {
+    @include df_ac;
+    cursor: pointer;
+    max-width: 45.5rem;
+    width: 100%;
+    border: .0625rem solid $white;
+    transition: all .3s;
+    padding: .75rem 1.25rem;
+    border-radius: 0.625rem;
+    @include mobile{
+        display: none;
+    }
+    &:focus-within {
+        border: .0625rem solid $l-blue;
+    }
+    &:hover {
+        border: .0625rem solid rgb(0, 242, 246, .5);
+        transition: all .3s;
+    }
+    input {
+        border: 0;
+        width: 100%;
+        height: 100%;
+        color: $white;
+        @include heading_3;
+        &::placeholder {
+            padding: 0.625rem;
+        }
+    }
+    svg {
+        max-width: 1.5rem;
+        max-height: 1.5rem;
+        @include wh_100;
+    }
+}
+
+.label{
+    &__profile{
+        border: 1px solid #FFFFFF;
+        @include mobile{
+            padding: 0.8rem;
+        }
+    }
+    .input{
+        height: 100%;
+        width: 100%;
+        color: white;
+        @include text_1;
+        &::placeholder {
+            padding: 0.625rem;
+            color: white;
+        }
+        &__profile{
+            border: none;
+        }
+    }
+    .textarea{
+        background-color: transparent;
+        @include text_1;
+        min-height: 7.875rem;
+        height: 100%;
+        resize: none;
+        overflow: hidden;
+        outline: none;
+    }
+}
+

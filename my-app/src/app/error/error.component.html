@@ -1,0 +1,12 @@
+<div class="denied-block d-flex align-items-center justify-content-between">
+    <div class="info-block d-flex flex-column gap-4">
+      <div class="d-flex flex-column gap-2">
+        <span class="violet fs-14">404 ОШИБКА</span>
+        <span class="fs-1 fw-bold">Страница не найдена</span>
+        <span>К сожалению, мы не смогли найти страницу, которую вы ищете</span>
+      </div>
+      <a (click)="goBack()" class="fs-6 violet text-decoration-none">Назад →</a>
+      <a routerLink="/" class="fs-6 violet text-decoration-none">На главную →</a>
+    </div>
+    <img src="../../assets/img/error.png" alt="">
+  </div>

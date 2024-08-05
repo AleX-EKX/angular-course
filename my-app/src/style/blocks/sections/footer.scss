@@ -1,0 +1,8 @@
+.footer{
+    &__block{
+        padding: 3rem 2rem;
+        @include df_ac_jcsb;
+        color: #9CA3AF;
+        @include text_3;
+    }
+}

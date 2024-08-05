@@ -1,0 +1,111 @@
+$black: #000000;
+$white: #FFFFFF;
+$l-gray: #C2C2C2;
+$gray: #9F9F9F;
+$d-gray: #4A4A4A;
+$red: #FF6161;
+$l-blue: #00F2F6;
+$pink: #E820E5;
+$green: #00F69D;
+$yellow: #FFFF26;
+$d-blue: #1C124F;
+$blue: #5846CC;
+$violet: #3A3395;
+
+@mixin heading_1{
+    font-size: 4rem;
+    font-weight: 600;
+    line-height: 4.841rem;
+    letter-spacing: -0.04em;
+    @include mobile {
+        font-size: 3rem;
+    }
+}
+@mixin heading_2{
+    font-size: 3.75rem;
+    font-weight: 600;
+    line-height: 4.538rem;
+    letter-spacing: -0.04em;
+    @include mobile {
+        font-size: 2.25rem;
+    }
+}
+@mixin heading_3{
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 3rem;
+    letter-spacing: -0.025em;
+    @include mobile {
+    font-size: 1.333rem;
+    }
+}
+@mixin paragraph_1{
+    font-size: 2.25rem;
+    font-weight: 600;
+    line-height: 2.723rem;
+    letter-spacing: -0.04em;
+    @include mobile{
+        font-size: 1.5rem;
+    }
+}
+@mixin paragraph_2{
+    font-size: 1.875rem;
+    font-weight: 600;
+    line-height: 2.25rem;
+    letter-spacing: -0.04em;
+    @include mobile{
+        font-size: 1.5rem;
+    }
+}
+
+@mixin text_1{
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.816rem;
+    letter-spacing: -0.02em;
+    @include mobile {
+        font-size: 1.083rem;
+        line-height: 1.321rem;
+    }
+}
+@mixin text_2{
+    font-size: 1.125rem;
+    font-weight: 400;
+    line-height: 1.361rem;
+    letter-spacing: -0.02em;
+    @include mobile {
+        font-size: 1.25rem;
+    }
+}
+@mixin text_3{
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.625rem;
+    letter-spacing: -0.02em;
+}
+@mixin text_4{
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.25rem;
+
+}
+
+
+.mt-8 {
+    margin-top: 8rem;
+}
+.mt-6 {
+    margin-top: 6rem;
+}
+.mt-4 {
+    margin-top: 4rem;
+}
+.mt-3 {
+    margin-top: 3rem;
+}
+.mt-2 {
+    margin-top: 2rem;
+}
+.mt-1 {
+    margin-top: 1rem;
+}

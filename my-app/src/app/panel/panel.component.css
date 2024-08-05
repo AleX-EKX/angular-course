@@ -1,0 +1,130 @@
+.user-list {
+    width: 100%;
+    max-width: 80rem;
+    margin: 0 auto;
+    border-radius: .5rem;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  .user-header, .user-item {
+    display: flex;
+    align-items: center;
+    padding: 0.625rem 1.25rem;
+    background-color: #fff;
+    border-bottom: 1px solid #eaeaea;
+  }
+  .user-header {
+    background-color: #f5f6f8;
+    color: #7a7d82;
+    font-weight: bold;
+  }
+  .user-header div {
+    flex: 1;
+    text-align: center;
+  }
+  .user-header div:nth-child(1) {
+    max-width: 51.25rem;
+    width: 100%;
+    flex: auto;
+    text-align: left;
+  }
+  .user-header.reciep div:nth-child(1){
+    max-width: auto;
+    width: 100%;
+    flex: 1;
+  }
+  .user-item:last-child {
+    border-bottom: none;
+  }
+  .user-info {
+    display: flex;
+    align-items: center;
+    max-width: 51.25rem;
+    width: 100%;
+  }
+  .user-info.reciep{
+    flex: 1;
+  }
+  .user-info img {
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-right: 0.625rem;
+  }
+  .user-details {
+    display: flex;
+    flex-direction: column;
+  }
+  .name {
+    font-weight: bold;
+    color: #333;
+  }
+  .login {
+    color: #7a7d82;
+  }
+  .status {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
+  .status span {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 12px;
+    background-color: #D1FAE5;
+    color: #065F46;
+    font-size: 14px;
+  }
+  .role {
+    flex: 1;
+    text-align: center;
+  }
+  .actions {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.625rem;
+  }
+  .actions.reciep{
+    flex: 0;
+  }
+  .actions a {
+    color: #fff;
+    padding: 5px;
+    border-radius: 4px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+  }
+  .edit {
+   cursor: pointer;
+  }
+  .delete {
+   cursor: pointer;
+  }
+  .user-list {
+    display: none;
+  }
+  .user-list.active {
+    display: block;
+  }
+  .nav-tabs {
+    display: flex;
+    border-bottom: 1px solid #eaeaea;
+    margin-bottom: 20px;
+  }
+  .nav-tabs span {
+    flex: 1;
+    text-align: center;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #333;
+    border-bottom: 3px solid transparent;
+    font-weight: bold;
+  }
+  .nav-tabs span.active {
+    color: #3b49df;
+    border-color: #3b49df;
+  }

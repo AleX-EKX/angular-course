@@ -1,0 +1,332 @@
+.recipe-section{
+    &__container{
+        .text-recipe{
+            color: #00000099;
+            @include text_3;
+        }
+        &__content{
+            @include df_ac_jcsb;
+
+            &__info-block{
+                @include df_fdc;
+                gap: 3rem;
+                .title{
+                    @include heading_2;
+                }
+                .details-reciep{
+                    @include df_ac;
+                    gap: 1rem;
+                    &__info-block{
+                        @include df_ac;
+                        gap: 1rem;
+                        padding-right: 2rem;
+                        img{
+                            max-width: 3.125rem;
+                            width: 100%;
+                            border-radius: 50%;
+                            object-fit: cover;
+                        }
+                        .user-block{
+                            @include df_fdc;
+                            gap: .5rem;
+                            span{
+                                color: #00000099;
+                                @include text_4;
+                                &:nth-child(1){
+                                    @include text_3;
+                                    color: black;
+                                }
+                            }
+                            
+                        }
+                    }
+                }
+            }
+        }
+        &__buttons-block{
+            @include df_ac;
+            gap: 2.375rem;
+            button{
+                padding: 1.75rem;
+                background-color: #E7FAFE;
+                border-radius: 50%;
+            }
+        }
+        &__food-value{
+            display: flex;
+            gap: 2.5rem;
+            img{
+                max-width: 52.5rem;
+                width: 100%;
+                border-radius: 2rem;
+            }
+            .nutritional-block{
+                padding: 2rem;
+                background-color: #E7FAFE;
+                border-radius: 2rem;
+                @include df_fdc_jcsb;
+                width: 100%;
+                &__info-block{
+                    @include df_fdc;
+                    gap: 1.25rem;
+                    
+                    &__title{
+                        @include text_1;
+                        color: black;
+                        text-align: center
+                    }
+                    &__details{
+                        @include df_ac_jcsb;
+                        @include text_2;
+                        color: #00000099;
+                        span{
+                            &:nth-child(2){
+                                color: black;
+                            }
+                        }
+                    }
+                    
+                }
+                .text{
+                    text-align: center;
+                }
+            }
+        }
+        &__ingredients{
+            display: flex;
+            gap: 2.5rem;
+            padding-top: 5rem;
+            .ingredients{
+                @include df_fdc;
+                gap: 3rem;
+                width: 100%;
+                &__title{
+                    @include paragraph_1;
+                    color: black;
+                }
+                &__info-block{
+                    @include df_fdc;
+                    &__title{
+                        @include text_1;
+                        color: black
+                    }
+                }
+            }
+            &__other{
+                max-width: 25rem;
+                width: 100%;
+                @include df_fdc;
+                gap: 2rem;
+                .title{
+                    font-size: 2rem;
+                    font-weight: 600;
+                    line-height: 2.421rem;
+                    letter-spacing: -0.04em;
+                }
+                .content{
+                    @include df_fdc;
+                    gap: 1.5rem;
+                }
+                .recipes-block{
+                    @include df_ac;
+                    gap: 1.5rem;
+                    img{
+                        max-width: 11.25rem;
+                        width: 100%;
+                        border-radius: 1rem;
+                    }
+                    &__info-block{
+                        @include df_fdc;
+                        gap: 1rem;
+                        max-width: 12.25rem;
+                        width: 100%;
+                        span{
+                            white-space: nowrap; 
+                            overflow: hidden;    
+                            text-overflow: ellipsis;
+                        }
+                    }
+                }
+            }
+        }
+        
+        &__cooking-steps{
+            @include df_fdc;
+            gap: 2rem;
+            padding-top: 9.375rem;
+            .title{
+                @include paragraph_1;
+            }
+        }
+        .checkbox-container {
+            @include df_ac;
+            gap: 1.5rem;
+            cursor: pointer;
+            user-select: none;
+            padding: 2.063rem 0;
+            border-bottom: 1px solid #0000001A;
+            &__info-block{
+               @include df_fdc;
+               gap: 1.5rem;
+               max-width: 49.5rem;
+               width: 100%;
+            }
+            .checkbox {
+                width: 1.5rem;
+                height: 1.5rem;
+                border-radius: 50%;
+                border: 2px solid #DBE2E5;
+                @include df_ac_jcc;
+              }
+              
+              .checkbox.checked {
+                background-color: #3D9A25;
+                border-color: #3D9A25;
+              }
+              
+              .checkbox.checked::after {
+                content: "\2713";
+                color: white;
+                font-size: 1rem;
+              }
+              
+              .text {
+                text-decoration: none;
+                color: black;
+                @include text_2;
+              }
+              .title{
+                @include text_1;
+                color: black;
+              }
+              
+              .text.checked,.title.checked {
+                text-decoration: line-through;
+                color: #00000099;
+                ;
+            }
+        }
+        &__other-recipe{
+            @include df_fdc;
+                gap: 5rem;
+                padding-top: 9.375rem;
+            .title-block{
+                @include paragraph_1;
+                color: black;
+                text-align: center;
+            }
+            .recommendation{
+                display: flex;
+                gap: 2.5rem;
+                &__info-block{
+                    @include df_fdc;
+                    gap: 1rem;
+                    position: relative;
+                    max-width: 18.125rem;
+                    flex: 1;
+                    img{
+                        max-width: 18.125rem;
+                        width: 100%;
+                        border-radius: 1rem;
+                        height: 100%;
+                    }
+                    &__favorites{
+                        position: absolute;
+                        top: 1rem;
+                        right: 1rem;
+                        background: white;
+                        border-radius: 50%;
+                        padding: .75rem;
+                        cursor: pointer;
+                    }
+                    .title{
+                        @include text_2;
+                        
+                    }
+                    &__description{
+                        @include df_ac;
+                        gap: 2rem;
+                        .time-block{
+                            @include df_ac;
+                            gap: 0.625rem;
+                            @include text_4;
+                            color: #00000099;
+
+                        }
+                    }
+                }
+            }
+        }
+        &__comments{
+            padding-top: 9.375rem;
+            @include df_fdc;
+            gap: 2.5rem;
+            .title{
+                @include paragraph_1;
+                color: black;
+            }
+            .comments-block{
+                @include df_fdc;
+                gap: 1rem;
+                &__info-block{
+                    display: flex;
+                    gap: .75rem;
+                    img{
+                        border-radius: 50%;
+                        max-width: 2.5rem;
+                        max-height: 2.5rem;
+                        width: 100%;
+                        object-fit: cover;
+                    }
+                    &__detail{
+                        @include df_fdc;
+                        gap: 0.125rem;
+                        span{
+                            color: black;
+                            @include text_4;
+                            &:nth-child(2){
+                                color: #6B7280;
+                            }
+                            &:nth-child(3){
+                               padding-top: .1rem;
+                            }
+                        }
+                    }
+                }
+            }
+            .label-comments{
+                position: relative;
+                margin-bottom: 9.375rem;
+                span{
+                    color: #374151;
+                    @include text_4;
+                }
+                .textarea-comments{
+                    padding-right: 9.375rem;
+                    border: 1px solid #D1D5DB;
+                    border-radius: .5rem;
+                    box-shadow: 0px 1px 2px 0px #0000000D;
+                    width: 100%;
+                    min-height: 7.625rem;
+                }
+                .btn-comments{
+                    @include df_ac;
+                    gap: .5rem;
+                    color: #4338CA;;
+                    background-color: #EEF2FF;
+                    position: absolute;
+                    bottom: 0.875rem;
+                    right: 0.875rem;
+                }
+            }
+            
+            
+        }
+          
+    }
+}
+.fav-icon{
+    path{
+        fill: #FF6363;
+    }
+}

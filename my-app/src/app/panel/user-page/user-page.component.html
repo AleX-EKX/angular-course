@@ -1,0 +1,103 @@
+<section>
+    <!-- Модальное окно для подтверждения удаления пользователя -->
+    <div class="modal fade" id="deleteUserModal" tabindex="-1" aria-labelledby="deleteUserModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="deleteUserModalLabel">
+              <span class="text-danger">⚠️</span> Удалить этого пользователя?
+            </h5>
+          </div>
+          <div class="modal-body">
+            Вы хотите удалить {{ user.username }}. Действие нельзя отменить.
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+            <button type="button" class="btn btn-danger" (click)="deleteUser()" data-bs-dismiss="modal">Удалить</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="user-item-section">
+    <div class="user-item-container container_v2">
+      <div class="block-head">
+        <div class="block-head__content">
+          <img class="rounded-circle" [src]="user.avatar || '../../assets/beef.png'" alt="Avatar">
+          <div class="block-head__content__info-block">
+            <span class="fw-bold">{{ user.lastName }}</span>
+            <span>Создан {{ user.createdAt | gmt3Date:'dd MMMM yyyy' }}</span>
+          </div>
+          <div class="block-head__content__status" *ngIf="user.role === 'user'">
+            <svg width="0.5rem" height="0.5rem" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="4" cy="4" r="3" fill="#60A5FA"/>
+            </svg>            
+            <span>Пользователь</span>
+          </div>
+          <div class="block-head__content__status status-adm" *ngIf="user.role === 'admin'">
+            <svg width="0.5rem" height="0.5rem" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="4" cy="4" r="3" fill="#F87171"/>
+            </svg>            
+            <span>Администратор</span>
+          </div>
+        </div>
+        <button class="button bg-danger" type="button" data-bs-toggle="modal" data-bs-target="#deleteUserModal" (click)="deleteUser()">Удалить</button>
+      </div>
+      
+      <div class="info-block">
+        <div class="info-block__recipe">
+          <span>Всего рецептов</span>
+          <span class="fw-bold">{{ totalRecipes }}</span>
+        </div>
+        <div class="info-block__recipe">
+          <span>Всего комментариев</span>
+          <span class="fw-bold">{{ totalComments }}</span>
+        </div>
+        <div class="info-block__recipe">
+          <span>Статус</span>
+          <span class="fw-bold">Активен</span>
+        </div>
+      </div>
+  
+    </div>
+  </section>
+  
+  <section class="recipe-item-section">
+    <div class="recipe-item__container container_v2">
+      <span class="recipe-item__container__title fw-bold">Созданные рецепты</span>
+      <div class="recipe-item__container__info-block">
+        <div *ngFor="let recipe of userRecipes" class="recipe-item__container__info-block__item">
+          <img [src]="recipe.image || '../../../assets/noimg.png'" alt="Recipe Image">
+          <span class="fw-bold">{{ recipe.title }}</span>
+          <span>Создан: {{ recipe.createdOn | gmt3Date:'dd MMMM, HH:mm' }}</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="info-account-section container_v2">
+    <div class="info-account__container">
+      <span class="info-account__container__title fw-bold">Информация аккаунта</span>
+      <div class="info-account__container__info-block">
+        <span>Фамилия</span>
+        <span>{{ user.lastName }}</span>
+      </div>
+      <div class="info-account__container__info-block">
+        <span>Имя</span>
+        <span>{{ user.firstName }}</span>
+      </div>
+      <div class="info-account__container__info-block">
+        <span>Отчество</span>
+        <span>{{ user.middleName }}</span>
+      </div>
+      <div class="info-account__container__info-block">
+        <span>User-Agent</span>
+        <span>{{ user.userAgent }}</span>
+      </div>
+      <div class="info-account__container__info-block">
+        <span>Последний раз заходил</span>
+        <span>{{ user.lastEntry | gmt3Date:'dd MMMM yyyy, HH:mm' }}</span>
+      </div>
+    </div>
+  </section>

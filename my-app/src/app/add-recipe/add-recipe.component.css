@@ -1,0 +1,13 @@
+.mw-input-custom{
+    max-width: 32rem;
+    width: 100%;
+   }
+   .basic-block .info-block{
+    padding: 1.25rem 0;
+   }
+   .width-content{
+    max-width: max-content;
+   }
+   .send-btn{
+    margin-left: auto;
+   }

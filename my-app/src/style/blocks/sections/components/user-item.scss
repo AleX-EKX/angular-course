@@ -1,0 +1,125 @@
+.user-item-section{
+    
+}
+.user-item-container{
+    @include df_fdc;
+    gap: 2.875rem;
+    .block-head{
+        @include df_ac_jcsb;
+        &__content{
+            display: flex;
+            gap: 1.25rem;
+            max-width: 28rem;
+            width: 100%;
+            img{
+                max-width: 4rem;
+                max-height: 4rem;
+                width: 100%;
+            }
+            &__info-block{
+                @include df_fdc;
+                span{
+                    @include text_4;
+                    &:nth-child(1){
+                        @include text_1;
+                    }
+                }
+            }
+            &__status{
+                @include df_ac;
+                gap: 0.438rem;
+                @include text_4;
+                background-color: #DBEAFE;
+                border-radius: 0.25rem;
+                padding: 0.125rem .75rem;
+                height: max-content;
+                span{
+                    color: #1E40AF;
+                }
+            }
+            .status-adm{
+                display: none;
+                background-color: #FEE2E2;
+            }
+        }
+    } 
+
+    .info-block{
+        display: flex;
+        gap: 1.25rem;
+        &__recipe{
+            padding: 1.5rem;
+            box-shadow: 0px 1px 3px 0px #0000001A;
+            border-radius: 0.25rem;
+            @include df_fdc;
+            gap: 0.25rem;
+            width: 100%;
+            span{
+                color: #6B7280;
+                @include text_4;
+                &:nth-child(2){
+                    @include paragraph_2;
+                    color: black;
+                }
+            }
+        }
+    }
+}
+
+.recipe-item-section{
+
+}
+.recipe-item__container{
+    @include df_fdc;
+    gap: 1.75rem;
+    &__title{
+        @include text_2;
+        color: black;
+        padding-bottom: 1.25rem;
+    }
+    &__info-block{
+        display: flex;
+        gap: 2rem;
+        flex-wrap: wrap;
+        &__item{
+            @include df_fdc;
+            gap: .5rem;
+            max-width: 23.5rem;
+            width: 100%;
+            img{
+                max-height: 16.25rem;
+                width: 100%;
+                border-radius: .5rem;
+                object-fit: cover;
+            }
+        }
+    }
+}
+
+.info-account-section{
+
+}
+.info-account__container{
+    box-shadow: 0px 1px 3px 0px #0000001A;
+    @include df_fdc;
+    gap: 1.25rem;
+    &__title{
+        @include text_2;
+        padding: 1.25rem 1.5rem;
+        padding-bottom: 0;
+    }
+    &__info-block{
+        padding: 1.25rem 1.5rem;
+        @include text_4;
+        color: #6B7280;
+        border-top: 1px solid #E5E7EB;
+        display: flex;
+        
+        span{
+            width: 100%;
+            &:nth-child(1){
+                max-width: 23.625rem;
+            }
+        }
+    }
+}

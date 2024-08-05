@@ -1,0 +1,138 @@
+<div class="d-flex flex-column gap-5">
+    <div class="d-flex flex-column">
+      <span class="fs-4 fw-bold">Панель администрирования</span>
+      <div class="nav-tabs">
+        <span [class.active]="activeTab === 'users'" (click)="setActiveTab('users')">Управление пользователями</span>
+        <span [class.active]="activeTab === 'recipes'" (click)="setActiveTab('recipes')">Управление рецептами</span>
+      </div>
+    </div>
+
+    <div class="modal fade" id="deleteUserModal" tabindex="-1" aria-labelledby="deleteUserModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="deleteUserModalLabel">
+              <span class="text-danger">⚠️</span> Удалить этого пользователя?
+            </h5>
+
+          </div>
+          <div class="modal-body">
+            Вы хотите удалить {{ selectedUserName }}. Действие нельзя отменить.
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="confirmDeleteUser()">Удалить</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="user-list" [class.active]="activeTab === 'users'" id="users-content">
+      <div class="user-header">
+        <div>НАИМЕНОВАНИЕ</div>
+        <div>СТАТУС</div>
+        <div>РОЛЬ</div>
+        <div></div>
+      </div>
+
+      <div *ngFor="let user of users" class="user-item">
+        <div class="user-info">
+          <img src="{{ user.avatar }}" alt="Avatar">
+          <div class="user-details">
+            <div class="name">{{ user.firstName }} {{ user.lastName }}</div>
+          <div class="login">{{ user.username }}</div>
+          </div>
+        </div>
+        <div class="status"><span>Активен</span></div>
+        <div class="role">{{ user.role }}</div>
+        <div class="actions">
+          <a class="edit" (click)="editUser(user.id)">
+            <svg width="1.5rem" height="1.5rem" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2.99998H5C4.46957 2.99998 3.96086 3.2107 3.58579 3.58577C3.21071 3.96084 3 4.46955 3 4.99998V19C3 19.5304 3.21071 20.0391 3.58579 20.4142C3.96086 20.7893 4.46957 21 5 21H19C19.5304 21 20.0391 20.7893 20.4142 20.4142C20.7893 20.0391 21 19.5304 21 19V12M18.375 2.62498C18.7728 2.22716 19.3124 2.00366 19.875 2.00366C20.4376 2.00366 20.9772 2.22716 21.375 2.62498C21.7728 3.02281 21.9963 3.56237 21.9963 4.12498C21.9963 4.68759 21.7728 5.22716 21.375 5.62498L12.362 14.639C12.1245 14.8762 11.8312 15.0499 11.509 15.144L8.636 15.984C8.54995 16.0091 8.45874 16.0106 8.37191 15.9883C8.28508 15.9661 8.20583 15.9209 8.14245 15.8575C8.07907 15.7942 8.03389 15.7149 8.01164 15.6281C7.9894 15.5412 7.9909 15.45 8.016 15.364L8.856 12.491C8.95053 12.169 9.12453 11.876 9.362 11.639L18.375 2.62498Z" stroke="#1B16A7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <a href="#" class="delete" data-bs-toggle="modal" data-bs-target="#deleteUserModal" (click)="openDeleteModal(user.id, user.username)">
+            <svg width="1.5rem" height="1.5rem" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 6H21M19 6V20C19 21 18 22 17 22H7C6 22 5 21 5 20V6M8 6V4C8 3 9 2 10 2H14C15 2 16 3 16 4V6M10 11V17M14 11V17" stroke="#D43535" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg> 
+          </a>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="modal fade" id="deleteReciepModal" tabindex="-1" aria-labelledby="deleteReciepModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="deleteReciepModalLabel">
+              <span class="text-danger">⚠️</span> Удалить этот рецепт?
+            </h5>
+
+          </div>
+          <div class="modal-body">
+            Вы хотите удалить  {{ selectedRecipeName  }}этот рецепт. Действие нельзя отменить.
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="confirmDeleteRecipe()">Удалить</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="user-list" [class.active]="activeTab === 'recipes'" id="recipes-content">
+      <div class="user-header reciep">
+        <div>НАЗВАНИЕ РЕЦЕПТА</div>
+        <div>КРАТКОЕ ОПИСАНИЕ</div>
+        <div>iD РЕЦЕПТА</div>
+        <div>КАТЕГОРИЯ</div>
+      </div>
+
+      <div class="user-item" *ngFor="let recipe of recipes">
+        <div class="user-info reciep">
+          <div class="name">{{ recipe.title }}</div>
+        </div>
+        <div class="role">{{ recipe.body }}</div>
+        <div class="role">{{ recipe.id }}</div>
+        <div class="role">{{ recipe.tags }}</div>
+        <div class="actions reciep">
+          <a href="#" class="edit" (click)="editRecipe(recipe.id)">
+            <svg width="1.25rem" height="1.25rem" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5.5 19H6.9L15.525 10.375L14.125 8.975L5.5 17.6V19ZM19.8 8.925L15.55 4.725L16.95 3.325C17.3333 2.94167 17.8043 2.75 18.363 2.75C18.9217 2.75 19.3923 2.94167 19.775 3.325L21.175 4.725C21.5583 5.10833 21.7583 5.571 21.775 6.113C21.7917 6.655 21.6083 7.11733 21.225 7.5L19.8 8.925ZM18.35 10.4L7.75 21H3.5V16.75L14.1 6.15L18.35 10.4ZM14.825 9.675L14.125 8.975L15.525 10.375L14.825 9.675Z" fill="#FFC700"/>
+            </svg>              
+          </a>
+          <a href="#" class="delete" data-bs-toggle="modal" data-bs-target="#deleteReciepModal" (click)="openDeleteRecipeModal(recipe.id, recipe.title)">
+            <svg width="1.5rem" height="1.5rem" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 6H21M19 6V20C19 21 18 22 17 22H7C6 22 5 21 5 20V6M8 6V4C8 3 9 2 10 2H14C15 2 16 3 16 4V6M10 11V17M14 11V17" stroke="#D43535" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg> 
+          </a>
+        </div>
+      </div>
+
+      <div class="user-item">
+        <div class="user-info">
+          <img src="./2.jfif" alt="Avatar">
+          <div class="user-details">
+            <div class="name">Cody Fisher</div>
+            <div class="login">loginName</div>
+          </div>
+        </div>
+        <div class="status"><span>Активен</span></div>
+        <div class="role">Пользователь</div>
+        <div class="actions">
+          <a href="#" class="edit">
+            <svg width="1.5rem" height="1.5rem" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2.99998H5C4.46957 2.99998 3.96086 3.2107 3.58579 3.58577C3.21071 3.96084 3 4.46955 3 4.99998V19C3 19.5304 3.21071 20.0391 3.58579 20.4142C3.96086 20.7893 4.46957 21 5 21H19C19.5304 21 20.0391 20.7893 20.4142 20.4142C20.7893 20.0391 21 19.5304 21 19V12M18.375 2.62498C18.7728 2.22716 19.3124 2.00366 19.875 2.00366C20.4376 2.00366 20.9772 2.22716 21.375 2.62498C21.7728 3.02281 21.9963 3.56237 21.9963 4.12498C21.9963 4.68759 21.7728 5.22716 21.375 5.62498L12.362 14.639C12.1245 14.8762 11.8312 15.0499 11.509 15.144L8.636 15.984C8.54995 16.0091 8.45874 16.0106 8.37191 15.9883C8.28508 15.9661 8.20583 15.9209 8.14245 15.8575C8.07907 15.7942 8.03389 15.7149 8.01164 15.6281C7.9894 15.5412 7.9909 15.45 8.016 15.364L8.856 12.491C8.95053 12.169 9.12453 11.876 9.362 11.639L18.375 2.62498Z" stroke="#1B16A7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <a href="#" class="delete">
+            <svg width="1.5rem" height="1.5rem" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 6H21M19 6V20C19 21 18 22 17 22H7C6 22 5 21 5 20V6M8 6V4C8 3 9 2 10 2H14C15 2 16 3 16 4V6M10 11V17M14 11V17" stroke="#D43535" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>                
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>

@@ -1,0 +1,78 @@
+.authorization-block{
+    max-width: 21.875rem;
+    @include df_fdc_jcc;
+    row-gap: 1.5rem;
+    font-size: 1rem;
+    margin: 0 auto;
+    height: 100vh;
+    @include mobile{
+        max-width: 29.167rem; 
+        padding: 1rem;
+    }
+    &__logo{
+        @include df_ac_jcc;
+        gap: 0.938rem;
+    }
+    &__password{
+        color: #C2C2C2;
+        @include text_1;
+    }
+    &__title{
+        text-transform: uppercase;
+        color: #1C1917;
+        @include heading_1;
+        text-align: center;
+    }
+    
+    .form-authorization{
+        @include df_fdc;
+        row-gap: 1.313rem;
+        &__submit-block{
+            @include df_ac_jcsb;
+        }
+        .jc-c{
+            justify-content: center;
+        }
+        .btn-authorization{
+            
+        }
+    }
+}
+.input{
+    border-radius: 0.313rem;
+    
+    // width: 100%;
+    width: -webkit-fill-available;
+    font-size: 1rem;
+    &::placeholder {
+        font-size: 1rem;
+    }
+    &_authorization{
+        padding: 0.938rem 1.25rem;
+        border: 1px solid #C2C2C2;
+        &::placeholder {
+            color: #C2C2C2;
+        }
+        &:hover {
+            border: 1px solid #9F9F9F;
+            &::placeholder {
+                color: #9F9F9F;
+            }
+           
+        }
+        &:active, &:focus {
+            border: 1px solid #4A4A4A;
+            &::placeholder {
+                color: #4A4A4A;
+            }
+            
+        }
+        
+    }
+    &_error{
+        border: 1px solid #FF6161;
+        &::placeholder {
+            color: #FF6161;
+        }
+    }
+}

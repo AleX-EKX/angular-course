@@ -1,0 +1,94 @@
+<form [formGroup]="recipeForm" (ngSubmit)="onSubmit()" class="create-recipe d-flex flex-column gap-5 container-indent">
+    <span class="fs-2 fw-bold">Создание рецепта</span>
+    <div class="basic-block d-flex flex-column gap-20">
+      <span class="fs-5 fw-bold">Основная информация</span>
+      <div class="info-block d-flex border-top">
+        <span class="fs-14 mw-custom">Название рецепта</span>
+        <input formControlName="title" type="text" class="form-control mw-input-custom">
+      </div>
+      <div class="info-block d-flex border-top">
+        <span class="fs-14 mw-custom">Краткое описание</span>
+        <div class="d-flex flex-column gap-2 w-100">
+          <textarea formControlName="body" class="form-control mw-input-custom"></textarea>
+          <span class="fs-14 custom-gray">Опишите о чем ваш рецепт</span>
+        </div>
+      </div>
+    </div>
+  
+    <div class="basic-block d-flex flex-column gap-20">
+      <span class="fs-5 fw-bold">Дополнительная информация</span>
+      <div class="info-block d-flex border-top">
+        <span class="fs-14 mw-custom">Категория</span>
+        <input formControlName="tags" type="text" class="form-control mw-input-custom">
+      </div>
+      <div class="info-block d-flex border-top">
+        <span class="fs-14 mw-custom">Время приготовления</span>
+        <input formControlName="timeCooking" type="number" class="form-control mw-input-custom">
+      </div>
+      <div formGroupName="foodValue" class="basic-block d-flex flex-column gap-20">
+        <div class="info-block d-flex border-top">
+          <span class="fs-14 mw-custom">Белки</span>
+          <input formControlName="proteins" type="number" class="form-control mw-input-custom">
+        </div>
+        <div class="info-block d-flex border-top">
+          <span class="fs-14 mw-custom">Жиры</span>
+          <input formControlName="fats" type="number" class="form-control mw-input-custom">
+        </div>
+        <div class="info-block d-flex border-top">
+          <span class="fs-14 mw-custom">Углеводы</span>
+          <input formControlName="carbohydrates" type="number" class="form-control mw-input-custom">
+        </div>
+        <div class="info-block d-flex border-top border-bottom">
+          <span class="fs-14 mw-custom">Калории</span>
+          <input formControlName="calories" type="number" class="form-control mw-input-custom">
+        </div>
+      </div>
+    </div>
+  
+    <div class="basic-block d-flex flex-column gap-20">
+      <div class="d-flex flex-column gap 1">
+        <span class="fs-5 fw-bold">Детальная информация</span>
+        <span class="fs-14 custom-gray">Детально опишите первый шаг вашего рецепта</span>
+      </div>
+      <div formArrayName="cookingSteps">
+        <div *ngFor="let step of cookingSteps.controls; let i = index" [formGroupName]="i">
+        <div class="info-block d-flex border-top">
+          <span class="fs-14 mw-custom">Краткое действие</span>
+          <input formControlName="title" type="text" class="form-control mw-input-custom">
+        </div>
+        <div class="info-block d-flex border-top">
+          <span class="fs-14 mw-custom">Описание</span>
+          <textarea formControlName="description" class="form-control mw-input-custom"></textarea>
+        </div>
+      </div>
+      <button type="button" (click)="addCookingStep()" class="fs-14 violet-bg btn text-white width-content">Добавить еще</button></div>
+      
+    </div>
+  
+    <div class="basic-block d-flex flex-column gap-20">
+      <span class="fs-5 fw-bold">Ингредиенты</span>
+      <div formArrayName="ingredients">
+        <div *ngFor="let ingredient of ingredients.controls; let i = index" [formGroupName]="i">
+            <div class="info-block d-flex border-top">
+              <span class="fs-14 mw-custom">Название ингредиента</span>
+              <input formControlName="title" type="text" class="form-control mw-input-custom">
+            </div>
+            <div class="info-block d-flex border-top">
+              <span class="fs-14 mw-custom">Описание</span>
+              <textarea formControlName="description" class="form-control mw-input-custom"></textarea>
+            </div>
+          </div>
+          <button type="button" (click)="addIngredient()" class="fs-14 violet-bg btn text-white width-content">Добавить еще</button>
+      </div>
+      
+    </div>
+  
+    <button type="submit" class="send-btn btn width-content d-flex align-items-center gap-2">
+
+      <svg width="1.25rem" height="1.25rem" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M2.003 5.884L10 9.882L17.997 5.884C17.9674 5.37444 17.7441 4.89549 17.3728 4.54523C17.0016 4.19497 16.5104 3.99991 16 4H4C3.48958 3.99991 2.99845 4.19497 2.62718 4.54523C2.25591 4.89549 2.0326 5.37444 2.003 5.884Z" fill="white"/>
+        <path d="M18 8.118L10 12.118L2 8.118V14C2 14.5304 2.21071 15.0391 2.58579 15.4142C2.96086 15.7893 3.46957 16 4 16H16C16.5304 16 17.0391 15.7893 17.4142 15.4142C17.7893 15.0391 18 14.5304 18 14V8.118Z" fill="white"/>
+      </svg>          
+      <span class="fs-6 text-black">Отправить рецепт</span>
+    </button>
+  </form>

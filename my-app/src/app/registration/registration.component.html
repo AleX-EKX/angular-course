@@ -1,0 +1,27 @@
+<div class="registration-block d-flex flex-column align-items-center justify-content-center gap-3 gap-2r">
+  <span class="fs-3 fw-bold">Зарегистрируйте ваш аккаунт</span>
+  <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()" class="info-block d-flex flex-column gap-4 needs-validation" novalidate>
+    <label class="form-label">Логин
+      <input formControlName="username" type="text" class="form-control" placeholder="loginname" aria-label="loginname" required>
+      <div *ngIf="registrationForm.get('username')?.invalid && registrationForm.get('username')?.touched" class="invalid-feedback">
+        Логин не может быть пустым.
+      </div>
+    </label>
+    <label class="form-label">Пароль
+      <input formControlName="password" type="password" class="form-control" placeholder="password" aria-label="password" required>
+      <div *ngIf="registrationForm.get('password')?.invalid && registrationForm.get('password')?.touched" class="invalid-feedback">
+        Пароль должен быть более 4 символов.
+      </div>
+    </label>
+    <label class="form-label">Имя
+      <input formControlName="firstName" type="text" class="form-control" placeholder="" aria-label="name">
+    </label>
+    <label class="form-label">Фамилия
+      <input formControlName="lastName" type="text" class="form-control" placeholder="" aria-label="surname">
+    </label>
+    <label class="form-label">Отчество (при наличии)
+      <input formControlName="middleName" type="text" class="form-control" placeholder="" aria-label="patronymic">
+    </label>
+    <button type="submit" class="fs-14 violet-bg text-decoration-none btn text-white" [disabled]="registrationForm.invalid">Зарегистрироваться</button>
+  </form>
+</div>

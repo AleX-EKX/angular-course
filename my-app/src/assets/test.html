@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Круглый "чекбокс"</title>
+<style>
+    .checkbox-container {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        user-select: none;
+    }
+    .checkbox {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        border: 2px solid #999;
+        margin-right: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .checkbox.checked {
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+    .checkbox.checked::after {
+        content: "\2713";
+        color: white;
+    }
+    .text {
+        text-decoration: none;
+        color: #333;
+    }
+    .text.checked {
+        text-decoration: line-through;
+        color: #999;
+    }
+    .comment-container {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 5px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.comment-box {
+  flex-grow: 1;
+  border: none;
+  outline: none;
+  resize: none;
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 5px;
+}
+
+.comment-box::placeholder {
+  color: #888;
+}
+
+.send-button {
+  border: none;
+  background-color: #eef;
+  color: #333;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.send-button:hover {
+  background-color: #ddd;
+}
+
+.send-button:active {
+  background-color: #ccc;
+}
+
+</style>
+</head>
+<body>
+
+    <div class="checkbox-container">
+        <div class="checkbox"></div>
+        <div class="text">Пример текста</div>
+    </div>
+    <div class="checkbox-container">
+        <div class="checkbox"></div>
+        <div class="text">Другой текст</div>
+    </div>
+    <div class="comment-container">
+        <textarea class="comment-box" placeholder="Ваш комментарий"></textarea>
+        <button class="send-button">Отправить</button>
+      </div>
+<script>
+
+const containers = document.querySelectorAll('.checkbox-container');
+    
+    containers.forEach(function(container) {
+        const checkbox = container.querySelector('.checkbox');
+        const text = container.querySelector('.text');
+        
+        container.addEventListener('click', function() {
+            checkbox.classList.toggle('checked');
+            text.classList.toggle('checked');
+        });
+    });
+    
+
+    
+    
+
+</script>
+
+</body>
+</html>

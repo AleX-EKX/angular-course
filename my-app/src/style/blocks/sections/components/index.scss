@@ -1,0 +1,67 @@
+.best-recipes-section{
+    h1{
+        @include heading_3;
+    }
+}
+
+.other-recipe{
+    .container-indent{
+        gap: 5rem;
+        &__title{
+            @include df_ac_jcsb;
+            .title-text{
+                @include heading_3;
+                color: black;
+                &:nth-child(2){
+                    color: #00000099;
+                    @include text_3;
+                }
+            }
+        }
+    }
+    &__info-block{
+        gap: 2.5rem;
+    }
+}
+.why-us{
+    padding: 9.375rem 0 ;
+    .container-indent{
+        gap: 5rem;
+        .why-us-block{
+            @include df_jcc;
+        }
+    }
+}
+.container-block-recipe{
+    .block-new-recipe{
+        @include df_ac_jcsb;
+        .info-block{
+
+        }
+    }
+}
+.notification{
+    position: fixed;
+    top: 2rem;
+    right: 1rem;
+    background-color: white;
+    color: black;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0px 10px 15px -3px #0000001A;
+    
+    &__info-block{
+        display: flex;
+        gap: 1rem;
+        &__detail{
+            @include df_fdc;
+            gap: .25rem;
+            span{
+                @include text_4;
+                &::nth-child(2){
+                    color: #6B7280;
+                }
+            }
+        }
+    }
+} 

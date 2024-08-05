@@ -1,0 +1,43 @@
+<div class="avtorization-block d-flex flex-column align-items-center justify-content-center gap-3 gap-2r">
+  <span class="fs-3 fw-bold">Войдите в ваш аккаунт</span>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="info-block d-flex flex-column gap-4 needs-validation" novalidate>
+    <label for="basic-url" class="form-label">Логин
+      <input type="text" class="form-control" formControlName="username" placeholder="loginname" aria-label="loginname" [ngClass]="{'is-invalid': submitted && forms['username'].errors}" required>
+    </label>
+    <div *ngIf="submitted && forms['username'].errors" class="invalid-feedback">
+      Введите корректный логин.
+    </div>
+
+    <label for="basic-url" class="form-label">Пароль
+      <input type="password"
+       class="form-control" 
+       formControlName="password"
+       placeholder="password" aria-label="password" [ngClass]="{'is-invalid': submitted && forms['password'].errors}" required>
+    </label>
+    <div *ngIf="submitted && forms['password'].errors" class="invalid-feedback">
+      Введите корректный пароль.
+    </div>
+
+    <div class="d-flex justify-content-between align-items-center">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" formControlName="fastSession" value="" id="flexCheckChecked">
+        <label class="form-check-label" for="flexCheckChecked">
+          Быстрая сессия
+        </label>
+      </div>
+      <a [routerLink]="['/registration']" class="fs-14 violet text-decoration-none">Зарегистрироваться</a>
+    </div>
+
+    <button type="submit" class="fs-14 violet-bg text-decoration-none btn text-white" [disabled]="!loginForm.valid">Вход</button>
+
+    <div *ngIf="errorMessage" class="alert alert-danger mt-3" role="alert">
+      {{ errorMessage }}
+    </div>
+
+    <div class="d-flex justify-content-between gap-3 align-items-center">
+      <div class="border w-100"></div>
+      <span class="white-space fs-14 custom-gray text-center w-100">Или войти через</span> 
+      <div class="border w-100"></div>
+    </div>
+  </form>
+  </div>
